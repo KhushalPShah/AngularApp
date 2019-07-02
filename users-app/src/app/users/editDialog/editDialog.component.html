@@ -1,0 +1,52 @@
+<h2 mat-dialog-title>Edit Form</h2>
+<form [formGroup]="editForm">
+  <mat-dialog-content>
+    <div>
+      <mat-form-field appearance="standard">
+        <input id="userName" type="text" matInput formControlName="userName" placeholder="Username" required>
+        <mat-icon matSuffix>sentiment_very_satisfied</mat-icon>
+        <mat-hint *ngIf="userName.invalid">Min 5 Characters</mat-hint>
+        <mat-error *ngIf="userName.invalid">Username Invalid. Min 5 Characters</mat-error>
+      </mat-form-field>
+    </div>
+    <div>
+      <mat-form-field appearance="standard">
+        <input type="email" matInput formControlName="email" placeholder="Email ID" required>
+        <mat-icon matSuffix>email</mat-icon>
+        <mat-hint *ngIf="email.invalid">yourname@yourmail.com</mat-hint>
+        <mat-error *ngIf="email.invalid">Email ID Invalid</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="standard">
+        <input type="text" matInput formControlName="password" placeholder="Password" required>
+        <mat-icon matSuffix>lock icon</mat-icon>
+        <mat-hint *ngIf="password.invalid">Min 7 Characters</mat-hint>
+        <mat-error *ngIf="password.invalid">Password Invalid. Min 7 Characters</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="standard">
+        <input type="tel" matInput formControlName="mobile" maxlength="10" placeholder="Contact Number" required>
+        <mat-icon matSuffix>phone</mat-icon>
+        <mat-hint *ngIf="mobile.invalid">Enter your 10 digit mobile number</mat-hint>
+        <mat-error *ngIf="mobile.invalid">Contact No. Invalid</mat-error>
+      </mat-form-field>
+    </div>
+
+    <div>
+      <mat-form-field appearance="standard">
+        <textarea matInput formControlName="address" placeholder="Address" required></textarea>
+        <mat-icon matSuffix>home</mat-icon>
+        <mat-error *ngIf="address.invalid">Address Invalid</mat-error>
+      </mat-form-field>
+    </div>
+
+    <mat-dialog-actions>
+      <button class="mat-raised-button" (click)="onEditFormClose()">Close</button>
+      <button [disabled]="editForm.invalid" class="mat-raised-button mat-primary" [mat-dialog-close]="editForm" >Save</button>
+    </mat-dialog-actions>
+  </mat-dialog-content>
+</form>
